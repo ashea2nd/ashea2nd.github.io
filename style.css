@@ -1,0 +1,139 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Teko', sans-serif;
+}
+
+.header{
+	min-height:  100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.7)), url("assets/background.jpg"); 
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+nav{
+	display: flex;
+	padding: 2% 6%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* 
+selector combinators: https://www.w3schools.com/css/css_combinators.asp
+- Refers to the space between "nav img" below. 
+- Used to reference decendents, ancestors, etc. between elements
+*/ 
+nav img{
+	width: 50px;
+}
+
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;
+	position: relative;
+}
+
+.nav-links ul li a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 20px;
+}
+/* 
+pseudo-elements: https://www.w3schools.com/css/css_pseudo_elements.asp
+- Referenced via the double colon "::" below 
+- Used to style specified parts of an element. These elements don't actually exist as a separate tag, so think of these as modifying some sub-attribute
+-::after is used to insert some content after the li element;
+*/ 
+.nav-links ul li::after{
+	content: '';
+	width: 0%; /* Adjusted to 100% upon hover */
+	height: 2px;
+	background: #f44336;
+	display: block;
+	margin: auto;
+	transition: 0.5s;
+}
+
+/* 
+pseudo classes: https://www.w3schools.com/css/css_pseudo_classes.asp
+- Referenced via the single colon ":" below 
+- Used to define a special state of an element
+- The :hover modifies the width (compare to the blocks above and below);
+*/ 
+.nav-links ul li:hover::after{
+	width: 100%;
+}
+
+.text-box {
+	width: 90%;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.text-box h1{
+	font-size: 100px;
+}
+
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 14px;
+	color: #fff;
+}
+
+nav .fas{
+	display: none;
+}
+
+/*
+This specifies website behavior for small screens (i.e., media with a max-width of 700px)
+*/
+@media(max-width: 700px){
+	.text-box h1{
+		font-size: 20px;
+	}
+	.nav-links ul li{
+		display: block;
+	}
+	.nav-links {
+	 	position: absolute;
+	 	background: #f44336;
+	 	height: 100vh;
+	 	width: 200px;
+	 	top: 0;
+	 	right: -200px;
+	 	text-align: left;
+	 	z-index: 2;
+	 	transition: 1s ;
+	}
+
+	nav .fas{
+		display: block;
+		color: #fff;
+		margin: 10px;
+		font-size: 14px;
+		cursor: pointer;
+	}
+
+	.nav-links ul{
+		padding: 30px;
+	}
+
+}
+
+
+
+
+
+
